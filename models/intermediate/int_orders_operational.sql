@@ -9,11 +9,23 @@ WITH shipping AS (
 )
 
 SELECT
-    s.orders_id, o.date_date,
-    ROUND((o.margin + shipping_fee - log_cost-ship_cost),2) as operational_margin
+    o.orders_id, 
+    o.date_date,
+    ROUND(SUM(o.revenue),2) as revenue, 
+    SUM(o.quantity) as quantity, 
+    ROUND(SUM(o.purchase_cost),2) as purchase_cost, 
+    ROUND(SUM(o.margin),2) as margin,
+    ROUND((o.margin + s.shipping_fee -s. log_cost - s.ship_cost),2) as operational_margin
 FROM 
 {{ ref('int_orders_margin') }} as o
 JOIN 
 shipping as s
-USING (orders_id)
-ORDER BY orders_id DESC
+    ON o.orders_id = s.orders_id
+GROUP BY 
+    o.orders_id, 
+    o.date_date,
+    o.margin,
+    s.shipping_fee,
+    s.log_cost,
+    s.ship_cost
+ORDER BY o.orders_id DESC
