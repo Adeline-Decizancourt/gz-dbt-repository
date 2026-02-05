@@ -33,18 +33,30 @@ sources:
       - name: adwords
         identifier: raw_gz_adwords
         description: ads cost, impression and click for each campaign key
+        tests:
+          - unique: 
+              column_name: "(date || '-' || campaign_key)"
       
       - name: bing
         identifier: raw_gz_bing
         description: bing campaign
+        tests:
+          - unique: 
+              column_name: "(date || '-' || campaign_key)"
 
       - name: criteo
         identifier: raw_gz_criteo
         description: criteo campaign
+        tests:
+          - unique: 
+              column_name: "(date || '-' || campaign_key)"
 
       - name: facebook
         identifier: raw_gz_facebook
         description: facebook campaign
+        tests:
+          - unique: 
+              column_name: "(date || '-' || campaign_key)"
 
 
         
