@@ -1,4 +1,4 @@
-{{config(materialized = 'finance_day')}}
+{{config(materialized = 'table')}}
 
 WITH orders_per_day AS (
 SELECT 
