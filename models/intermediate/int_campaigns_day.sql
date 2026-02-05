@@ -13,4 +13,4 @@ GROUP BY
     paid_source, 
     campaign_key, 
     campaign_name
-ORDER BY date DESC
+ORDER BY date_date DESC
