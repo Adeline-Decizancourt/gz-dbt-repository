@@ -42,21 +42,31 @@ sources:
         description: bing campaign
         tests:
           - unique: 
-              column_name: "(date || '-' || campaign_key)"
+              column_name: "(date || '-' || campgn_key)"
 
       - name: criteo
         identifier: raw_gz_criteo
         description: criteo campaign
         tests:
           - unique: 
-              column_name: "(date || '-' || campaign_key)"
+              column_name: "(date || '-' || campgn_key)"
 
       - name: facebook
         identifier: raw_gz_facebook
         description: facebook campaign
         tests:
           - unique: 
-              column_name: "(date || '-' || campaign_key)"
-
-
-        
+              column_name: "(date || '-' || campgn_key)"
+       
+models: 
+  - name: int_campaigns_day
+    columns:
+      - name: click
+        tests:
+          - not_null
+      - name: impressions
+        tests:
+          - not_null
+      - name: ads_cost
+        tests:
+          - not_null
