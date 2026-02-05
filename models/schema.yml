@@ -29,5 +29,22 @@ sources:
           tests:
             - unique
             - not_null
-        
+      
+      - name: adwords
+        identifier: raw_gz_adwords
+        description: ads cost, impression and click for each campaign key
+      
+      - name: bing
+        identifier: raw_gz_bing
+        description: bing campaign
+
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: criteo campaign
+
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: facebook campaign
+
+
         
