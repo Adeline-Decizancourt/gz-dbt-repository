@@ -15,7 +15,10 @@ SELECT
     SUM(o.quantity) as quantity, 
     ROUND(SUM(o.purchase_cost),2) as purchase_cost, 
     ROUND(SUM(o.margin),2) as margin,
-    ROUND((o.margin + s.shipping_fee -s. log_cost - s.ship_cost),2) as operational_margin
+    ROUND((o.margin + s.shipping_fee -s. log_cost - s.ship_cost),2) as operational_margin,
+    s.shipping_fee,
+    s.log_cost,
+    s.ship_cost
 FROM 
 {{ ref('int_orders_margin') }} as o
 JOIN 
